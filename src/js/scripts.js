@@ -107,6 +107,7 @@ const renderLinkedIn = (linkedin) => {
   const link = document.createElement("a");
   link.className = "badge-base__link LI-simple-link";
   link.href = linkedin.url;
+  link.setAttribute("hidden", "true");
   link.textContent = badge.profileName || linkedin.label;
   profile.append(link);
   regions["hero-linkedin"].append(profile);

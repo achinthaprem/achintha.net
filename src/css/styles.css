@@ -462,8 +462,31 @@ h1 {
   min-width: min(100%, 300px);
 }
 
+.linkedin-render .LI-profile-badge,
+.linkedin-render iframe {
+  display: block;
+}
+
+.linkedin-render iframe {
+  border: 0;
+}
+
 .linkedin-render-hero {
   justify-self: end;
+  overflow: hidden;
+  border-radius: 12px;
+  background: transparent;
+}
+
+.linkedin-render-hero .LI-profile-badge,
+.linkedin-render-hero iframe {
+  overflow: hidden;
+  border-radius: 12px;
+  background: transparent;
+}
+
+.linkedin-render-hero iframe {
+  clip-path: inset(1px 10px 10px 1px round 12px);
 }
 
 .contact-band {
