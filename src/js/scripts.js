@@ -85,21 +85,17 @@ const loadLinkedInBadgeScript = () => {
   document.body.append(script);
 };
 
-const renderLinkedIn = (linkedin) => {
-  clearRegion("hero-linkedin");
-  clearRegion("linkedin-action");
-
-  if (!linkedin?.badge?.enabled) {
-    if (linkedin?.url) regions["linkedin-action"].append(makeLink(linkedin));
-    return;
-  }
-
+const makeLinkedInBadge = (linkedin, theme) => {
   const badge = linkedin.badge;
+  const wrapper = document.createElement("div");
+  wrapper.className = "linkedin-badge-theme";
+  wrapper.dataset.badgeTheme = theme;
+
   const profile = document.createElement("div");
   profile.className = "badge-base LI-profile-badge";
   profile.dataset.locale = badge.locale;
   profile.dataset.size = badge.size;
-  profile.dataset.theme = document.documentElement.dataset.theme;
+  profile.dataset.theme = theme;
   profile.dataset.type = badge.type;
   profile.dataset.vanity = badge.vanity;
   profile.dataset.version = badge.version;
@@ -110,7 +106,24 @@ const renderLinkedIn = (linkedin) => {
   link.setAttribute("hidden", "true");
   link.textContent = badge.profileName || linkedin.label;
   profile.append(link);
-  regions["hero-linkedin"].append(profile);
+  wrapper.append(profile);
+
+  return wrapper;
+};
+
+const renderLinkedIn = (linkedin) => {
+  clearRegion("hero-linkedin");
+  clearRegion("linkedin-action");
+
+  if (!linkedin?.badge?.enabled) {
+    if (linkedin?.url) regions["linkedin-action"].append(makeLink(linkedin));
+    return;
+  }
+
+  regions["hero-linkedin"].append(
+    makeLinkedInBadge(linkedin, THEMES.light),
+    makeLinkedInBadge(linkedin, THEMES.dark)
+  );
 
   if (linkedin.url) regions["linkedin-action"].append(makeLink(linkedin));
 

@@ -472,10 +472,25 @@ h1 {
 }
 
 .linkedin-render-hero {
+  position: relative;
   justify-self: end;
   overflow: hidden;
   border-radius: 12px;
   background: transparent;
+}
+
+.linkedin-render-hero .linkedin-badge-theme {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  pointer-events: none;
+}
+
+html[data-theme="light"] .linkedin-render-hero .linkedin-badge-theme[data-badge-theme="light"],
+html[data-theme="dark"] .linkedin-render-hero .linkedin-badge-theme[data-badge-theme="dark"] {
+  position: static;
+  opacity: 1;
+  pointer-events: auto;
 }
 
 .linkedin-render-hero .LI-profile-badge,
