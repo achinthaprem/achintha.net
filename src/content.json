@@ -1,0 +1,108 @@
+{
+  "person": {
+    "name": "Achintha",
+    "domain": "achintha.net",
+    "email": "me@achintha.net",
+    "role": "Software Developer",
+    "availability": "Backend systems, APIs, microservices, Kubernetes deployments",
+    "intro": "I build and operate backend software: Java services, API platforms, distributed systems, and production deployments. This site is a small, direct place to represent myself on the internet.",
+    "location": ""
+  },
+  "navigation": [
+    {
+      "label": "Focus",
+      "href": "#focus"
+    },
+    {
+      "label": "Experience",
+      "href": "#experience"
+    },
+    {
+      "label": "Contact",
+      "href": "#contact"
+    }
+  ],
+  "actions": [
+    {
+      "label": "Email",
+      "href": "mailto:me@achintha.net",
+      "style": "primary"
+    }
+  ],
+  "system": [
+    {
+      "title": "Java services",
+      "subtitle": "Backend systems and service APIs",
+      "tag": "build"
+    },
+    {
+      "title": "Microservices",
+      "subtitle": "Service boundaries, integration, resilience",
+      "tag": "shape"
+    },
+    {
+      "title": "Kubernetes",
+      "subtitle": "Deployment, runtime, operations",
+      "tag": "run"
+    }
+  ],
+  "focus": {
+    "title": "Focus",
+    "lede": "The work I tend to care about is practical backend engineering: systems that are understandable, deployable, and steady in production.",
+    "items": [
+      {
+        "title": "Backend development",
+        "body": "Java services, application design, API implementation, persistence, integration, and operational concerns."
+      },
+      {
+        "title": "APIs and platforms",
+        "body": "HTTP APIs, service contracts, versioning, authentication boundaries, and integration points that stay clear over time."
+      },
+      {
+        "title": "Cloud native delivery",
+        "body": "Microservices, containerized workloads, Kubernetes deployments, release flows, and runtime observability."
+      }
+    ]
+  },
+  "experience": {
+    "title": "Experience",
+    "lede": "I am primarily represented by the engineering work I do inside teams. This page keeps that context concise rather than trying to act as a project gallery.",
+    "skills": [
+      "Java",
+      "Spring",
+      "REST APIs",
+      "Microservices",
+      "Kubernetes",
+      "Docker",
+      "CI/CD",
+      "SQL",
+      "Backend architecture",
+      "Production operations"
+    ]
+  },
+  "linkedin": {
+    "title": "LinkedIn",
+    "body": "LinkedIn personal profiles are not reliably available as public iframes. This page can load LinkedIn's public profile badge when their script is available.",
+    "url": "https://se.linkedin.com/in/achinthaprem?trk=profile-badge",
+    "label": "LinkedIn profile",
+    "badge": {
+      "enabled": true,
+      "locale": "en_US",
+      "size": "large",
+      "type": "HORIZONTAL",
+      "vanity": "achinthaprem",
+      "version": "v1",
+      "profileName": "Achintha Premarathne"
+    }
+  },
+  "contact": {
+    "title": "Contact",
+    "body": "The most direct way to reach me is email.",
+    "label": "me@achintha.net",
+    "href": "mailto:me@achintha.net"
+  },
+  "footer": {
+    "privacy": "No analytics. No public project gallery. No search indexing requested.",
+    "copyright": "achintha.net"
+  }
+}

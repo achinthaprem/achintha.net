@@ -1,47 +1,95 @@
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!doctype html>
+<html lang="en">
 
 <head>
-   <!-- Global Site Tag (gtag.js) - Google Analytics -->
-   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-97247392-1"></script>
-   <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag() { dataLayer.push(arguments); }
-      gtag('js', new Date());
-      gtag('require', 'displayfeatures');
-      gtag('config', 'UA-97247392-1');
-   </script>
-   <title>achintha.net</title>
-   <style type="text/css">
-      body {
-         overflow: hidden;
-      }
-
-      .wrapper {
-         display: table;
-         position: absolute;
-         height: 100%;
-         width: 100%;
-      }
-
-      .wrapper-center {
-         display: table-cell;
-         vertical-align: middle;
-      }
-
-      .welcome {
-         text-align: center;
-         font-size: 200px;
-         transform: rotate(90deg);
-      }
-   </style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex">
+  <meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet, noimageindex">
+  <meta name="bingbot" content="noindex, nofollow, noarchive, nosnippet, noimageindex">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta name="color-scheme" content="light dark">
+  <title>achintha.net</title>
+  <link rel="stylesheet" href="src/css/styles.css">
+  <script src="src/js/scripts.js" defer></script>
 </head>
 
 <body>
-   <div class="wrapper">
-      <div class="wrapper-center">
-         <div class="welcome">:)</div>
+  <div class="page">
+    <header class="site-header">
+      <a class="brand" href="/" aria-label="achintha.net home">
+        <span class="mark" data-field="initial">A</span>
+        <span class="brand-text">
+          <span class="brand-name" data-field="name"></span>
+          <span class="brand-domain" data-field="domain"></span>
+        </span>
+      </a>
+      <div class="header-actions">
+        <nav class="nav" aria-label="Primary navigation" data-region="navigation"></nav>
+        <button class="theme-toggle" type="button" aria-label="Switch to dark theme" aria-pressed="false"
+          data-theme-toggle>
+          <span class="theme-toggle-track" aria-hidden="true">
+            <span class="theme-toggle-icon theme-toggle-icon-light"></span>
+            <span class="theme-toggle-icon theme-toggle-icon-dark"></span>
+            <span class="theme-toggle-knob"></span>
+          </span>
+        </button>
       </div>
-   </div>
+    </header>
+
+    <main>
+      <section class="hero" aria-labelledby="hero-title">
+        <div>
+          <p class="kicker" data-field="role"></p>
+          <h1 id="hero-title" data-field="name"></h1>
+          <p class="intro" data-field="intro"></p>
+          <div class="actions" data-region="actions"></div>
+        </div>
+        <div class="linkedin-render linkedin-render-hero" data-region="hero-linkedin"></div>
+      </section>
+
+      <section class="section" id="focus" aria-labelledby="focus-title">
+        <div class="section-header">
+          <h2 id="focus-title" data-field="focus-title"></h2>
+          <p class="section-lede" data-field="focus-lede"></p>
+        </div>
+        <div class="grid" data-region="focus"></div>
+      </section>
+
+      <section class="section" id="experience" aria-labelledby="experience-title">
+        <div class="section-header">
+          <h2 id="experience-title" data-field="experience-title"></h2>
+          <p class="section-lede" data-field="experience-lede"></p>
+        </div>
+        <ul class="tag-list" data-region="skills"></ul>
+      </section>
+
+      <section class="section" id="linkedin" aria-labelledby="linkedin-title">
+        <div class="linkedin-panel">
+          <div>
+            <h2 id="linkedin-title" data-field="linkedin-title"></h2>
+            <p data-field="linkedin-body"></p>
+          </div>
+          <div class="linkedin-render" data-region="linkedin-action"></div>
+        </div>
+      </section>
+
+      <section class="section" id="contact" aria-labelledby="contact-title">
+        <div class="contact-band">
+          <div>
+            <h2 id="contact-title" data-field="contact-title"></h2>
+            <p data-field="contact-body"></p>
+          </div>
+          <a class="button" data-field="contact-link"></a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p data-field="footer-privacy"></p>
+      <p data-field="footer-copyright"></p>
+    </footer>
+  </div>
 </body>
 
 </html>
