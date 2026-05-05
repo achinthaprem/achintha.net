@@ -133,7 +133,19 @@ a:hover {
   background: var(--surface);
   box-shadow: var(--shadow);
   color: var(--accent-strong);
+}
+
+.mark-letter {
+  display: block;
+  font-size: 30px;
   font-weight: 750;
+  transform: translateY(-8px);
+}
+
+.mark img {
+  display: block;
+  width: 20px;
+  height: 20px;
 }
 
 .brand-text {
@@ -459,6 +471,7 @@ h1 {
 }
 
 .linkedin-render {
+  --linkedin-badge-width: 672px;
   min-width: min(100%, 300px);
 }
 
@@ -473,7 +486,9 @@ h1 {
 
 .linkedin-render-hero {
   position: relative;
+  isolation: isolate;
   justify-self: end;
+  width: min(100%, var(--linkedin-badge-width));
   overflow: hidden;
   border-radius: 12px;
   background: transparent;
@@ -488,10 +503,12 @@ h1 {
 
 html[data-theme="light"] .linkedin-render-hero .linkedin-badge-theme[data-badge-theme="light"],
 html[data-theme="dark"] .linkedin-render-hero .linkedin-badge-theme[data-badge-theme="dark"] {
-  position: static;
+  position: relative;
   display: flex;
   justify-content: center;
+  width: fit-content;
   max-width: 100%;
+  margin-inline: auto;
   opacity: 1;
   pointer-events: auto;
 }
@@ -499,13 +516,23 @@ html[data-theme="dark"] .linkedin-render-hero .linkedin-badge-theme[data-badge-t
 .linkedin-render-hero .LI-profile-badge,
 .linkedin-render-hero iframe {
   overflow: hidden;
+  max-width: 100%;
   border-radius: 12px;
   background: transparent;
 }
 
 .linkedin-render-hero iframe {
-  clip-path: inset(1px 10px 10px 1px round 12px);
-  max-width: 100%;
+  clip-path: inset(1px 10px 5px 1px round 12px);
+}
+
+.linkedin-render-hero .linkedin-badge-theme::after {
+  position: absolute;
+  inset: 1px 10px 5px 1px;
+  z-index: 2;
+  border: 1px solid color-mix(in srgb, var(--line) 82%, var(--text));
+  border-radius: 12px;
+  content: "";
+  pointer-events: none;
 }
 
 .contact-band {

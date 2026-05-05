@@ -75,13 +75,14 @@ const clearRegion = (region) => {
 };
 
 const loadLinkedInBadgeScript = () => {
-  if (document.querySelector(`script[src="${LINKEDIN_BADGE_SCRIPT}"]`)) return;
+  if (document.querySelector(`[data-linkedin-badge-script]`)) return;
 
   const script = document.createElement("script");
   script.src = LINKEDIN_BADGE_SCRIPT;
   script.async = true;
   script.defer = true;
   script.type = "text/javascript";
+  script.dataset.linkedinBadgeScript = "true";
   document.body.append(script);
 };
 
@@ -132,7 +133,6 @@ const renderLinkedIn = (linkedin) => {
 
 const renderContent = (content) => {
   document.title = `${content.person.name} | ${content.person.domain}`;
-  setText("initial", content.person.name.charAt(0));
   setText("name", content.person.name);
   setText("domain", content.person.domain);
   setText("role", content.person.role);
