@@ -522,7 +522,7 @@ html[data-theme="dark"] .linkedin-render-hero .linkedin-badge-theme[data-badge-t
 }
 
 .linkedin-render-hero iframe {
-  clip-path: inset(1px 10px 5px 1px round 12px);
+  clip-path: inset(1px 11px 5px 1px round 12px);
 }
 
 .linkedin-render-hero .linkedin-badge-theme::after {
@@ -591,11 +591,11 @@ html[data-theme="dark"] .linkedin-render-hero .linkedin-badge-theme[data-badge-t
     width: min(100% - 28px, 680px);
   }
 
-    .site-header {
-      align-items: center;
-    }
+  .site-header {
+    align-items: center;
+  }
 
-    .nav {
+  .nav {
     display: none;
   }
 
