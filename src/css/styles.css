@@ -454,19 +454,66 @@ h1 {
   font-size: 0.94rem;
 }
 
-.linkedin-panel {
+.certification-list {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) auto;
-  gap: 20px;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 14px;
+}
+
+.certification-card {
+  display: grid;
+  grid-template-columns: 112px minmax(0, 1fr);
+  gap: 22px;
   align-items: center;
-  padding: 22px;
+  width: 100%;
+  padding: 20px;
   border: 1px solid var(--line);
   border-radius: 8px;
   background: var(--surface);
 }
 
-.linkedin-panel p {
-  margin: 6px 0 0;
+.certification-image {
+  display: block;
+  width: 112px;
+  height: 112px;
+  object-fit: contain;
+}
+
+.certification-card h3 {
+  margin: 5px 0 8px;
+  font-size: 1.08rem;
+  letter-spacing: 0;
+}
+
+.certification-card p {
+  margin: 0;
+}
+
+.certification-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 12px;
+  align-items: center;
+}
+
+.certification-issuer {
+  color: var(--accent-strong);
+  font-size: 0.78rem;
+  font-weight: 760;
+  text-transform: uppercase;
+}
+
+.certification-status {
+  padding: 3px 8px;
+  border: 1px solid color-mix(in srgb, var(--accent) 40%, var(--line));
+  border-radius: 999px;
+  color: var(--accent-strong);
+  font-size: 0.74rem;
+  font-weight: 760;
+  text-transform: uppercase;
+}
+
+.certification-summary {
   color: var(--muted);
 }
 
@@ -490,13 +537,20 @@ h1 {
   justify-self: end;
   width: min(100%, var(--linkedin-badge-width));
   overflow: hidden;
-  border: 1px solid #5f6864;
-  border-radius: 12px;
   background: transparent;
 }
 
-html[data-theme="light"] .linkedin-render-hero {
+.linkedin-render-hero > iframe {
+  border: 1px solid #5f6864;
+  border-radius: 12px;
+}
+
+html[data-theme="light"] .linkedin-render-hero > iframe {
   border-color: #d8d0c1;
+}
+
+html[data-theme="dark"] .linkedin-render-hero > iframe {
+  border-color: #5f6864;
 }
 
 .linkedin-render-hero .linkedin-badge-theme {
@@ -615,8 +669,7 @@ html[data-theme="dark"] .linkedin-render-hero .linkedin-badge-theme[data-badge-t
 
   .hero,
   .section-header,
-  .contact-band,
-  .linkedin-panel {
+  .contact-band {
     grid-template-columns: 1fr;
   }
 
@@ -638,6 +691,16 @@ html[data-theme="dark"] .linkedin-render-hero .linkedin-badge-theme[data-badge-t
 
   .grid {
     grid-template-columns: 1fr;
+  }
+
+  .certification-card {
+    grid-template-columns: 88px minmax(0, 1fr);
+    gap: 16px;
+  }
+
+  .certification-image {
+    width: 88px;
+    height: 88px;
   }
 }
 

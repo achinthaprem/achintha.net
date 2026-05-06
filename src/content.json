@@ -2,7 +2,7 @@
   "person": {
     "name": "Achintha",
     "domain": "achintha.net",
-    "email": "me@achintha.net",
+    "email": "hello@achintha.net",
     "role": "Software Developer",
     "availability": "Backend systems, APIs, microservices, Kubernetes deployments",
     "intro": "I build and operate backend software: Java services, API platforms, distributed systems, and production deployments. This site is a small, direct place to represent myself on the internet.",
@@ -18,14 +18,18 @@
       "href": "#experience"
     },
     {
+      "label": "Certifications",
+      "href": "#certifications"
+    },
+    {
       "label": "Contact",
       "href": "#contact"
     }
   ],
   "actions": [
     {
-      "label": "Email",
-      "href": "mailto:me@achintha.net",
+      "label": "Contact",
+      "href": "#contact",
       "style": "primary"
     }
   ],
@@ -95,11 +99,27 @@
       "profileName": "Achintha Premarathne"
     }
   },
+  "certifications": {
+    "title": "Certifications",
+    "lede": "",
+    "items": [
+      {
+        "title": "AWS Certified Developer - Associate",
+        "issuer": "Amazon Web Services",
+        "status": "In progress",
+        "summary": "Currently studying for this certification, focused on developing, deploying, and maintaining applications on AWS.",
+        "image": {
+          "src": "https://images.credly.com/images/b9feab85-1a43-4f6c-99a5-631b88d5461b/image.png",
+          "alt": "AWS Certified Developer - Associate badge"
+        }
+      }
+    ]
+  },
   "contact": {
     "title": "Contact",
     "body": "The most direct way to reach me is email.",
-    "label": "me@achintha.net",
-    "href": "mailto:me@achintha.net"
+    "label": "hello@achintha.net",
+    "href": "mailto:hello@achintha.net"
   },
   "footer": {
     "privacy": "No analytics. No public project gallery. No search indexing requested.",

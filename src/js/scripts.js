@@ -62,7 +62,10 @@ updateThemeToggle();
 
 const setText = (selector, value) => {
   fields.forEach((node) => {
-    if (node.dataset.field === selector) node.textContent = value || "";
+    if (node.dataset.field !== selector) return;
+
+    node.textContent = value || "";
+    node.hidden = !value;
   });
 };
 
@@ -101,13 +104,13 @@ const renderLinkedIn = (linkedin) => {
   clearRegion("linkedin-action");
 
   if (!linkedin?.badge?.enabled) {
-    if (linkedin?.url) regions["linkedin-action"].append(makeLink(linkedin));
+    if (linkedin?.url) regions["linkedin-action"]?.append(makeLink(linkedin));
     return;
   }
 
   regions["hero-linkedin"]?.append(makeLinkedInBadgeFrame());
 
-  if (linkedin.url) regions["linkedin-action"].append(makeLink(linkedin));
+  if (linkedin.url) regions["linkedin-action"]?.append(makeLink(linkedin));
 };
 
 const renderContent = (content) => {
@@ -120,8 +123,8 @@ const renderContent = (content) => {
   setText("focus-lede", content.focus.lede);
   setText("experience-title", content.experience.title);
   setText("experience-lede", content.experience.lede);
-  setText("linkedin-title", content.linkedin.title);
-  setText("linkedin-body", content.linkedin.body);
+  setText("certifications-title", content.certifications.title);
+  setText("certifications-lede", content.certifications.lede);
   setText("contact-title", content.contact.title);
   setText("contact-body", content.contact.body);
   setText("footer-privacy", content.footer.privacy);
@@ -132,6 +135,7 @@ const renderContent = (content) => {
   clearRegion("system");
   clearRegion("focus");
   clearRegion("skills");
+  clearRegion("certifications");
 
   content.navigation.forEach((item) => regions.navigation.append(makeNavLink(item)));
   content.actions.forEach((item) => regions.actions.append(makeLink(item)));
@@ -167,6 +171,30 @@ const renderContent = (content) => {
     const item = document.createElement("li");
     item.textContent = skill;
     regions.skills.append(item);
+  });
+
+  content.certifications.items.forEach((certification) => {
+    const item = document.createElement("article");
+    item.className = "certification-card";
+    item.innerHTML = `
+      <img class="certification-image" alt="">
+      <div>
+        <div class="certification-meta">
+          <p class="certification-issuer"></p>
+          <p class="certification-status"></p>
+        </div>
+        <h3></h3>
+        <p class="certification-summary"></p>
+      </div>
+    `;
+    const image = item.querySelector(".certification-image");
+    image.src = certification.image.src;
+    image.alt = certification.image.alt;
+    item.querySelector(".certification-issuer").textContent = certification.issuer;
+    item.querySelector(".certification-status").textContent = certification.status;
+    item.querySelector("h3").textContent = certification.title;
+    item.querySelector(".certification-summary").textContent = certification.summary;
+    regions.certifications.append(item);
   });
 
   const contact = document.querySelector('[data-field="contact-link"]');
