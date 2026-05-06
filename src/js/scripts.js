@@ -1,8 +1,18 @@
 const CONTENT_URL = "src/content.json";
-const LINKEDIN_BADGE_SCRIPT = "https://platform.linkedin.com/badges/js/profile.js";
 const THEMES = {
   light: "light",
   dark: "dark"
+};
+const LINKEDIN_BADGE_PAGES = {
+  light: "src/html/linkedin-badge-light.html",
+  dark: "src/html/linkedin-badge-dark.html"
+};
+
+const updateLinkedInBadgeFrames = (theme) => {
+  document.querySelectorAll("[data-linkedin-local-badge-frame]").forEach((frame) => {
+    const nextSrc = LINKEDIN_BADGE_PAGES[theme];
+    if (frame.getAttribute("src") !== nextSrc) frame.setAttribute("src", nextSrc);
+  });
 };
 
 const getSystemTheme = () =>
@@ -11,6 +21,7 @@ const getSystemTheme = () =>
 const applyTheme = (theme) => {
   document.documentElement.dataset.theme = theme;
   document.documentElement.style.colorScheme = theme;
+  updateLinkedInBadgeFrames(theme);
 };
 
 let hasManualThemeSelection = false;
@@ -74,42 +85,15 @@ const clearRegion = (region) => {
   if (regions[region]) regions[region].replaceChildren();
 };
 
-const loadLinkedInBadgeScript = () => {
-  if (document.querySelector(`[data-linkedin-badge-script]`)) return;
-
-  const script = document.createElement("script");
-  script.src = LINKEDIN_BADGE_SCRIPT;
-  script.async = true;
-  script.defer = true;
-  script.type = "text/javascript";
-  script.dataset.linkedinBadgeScript = "true";
-  document.body.append(script);
-};
-
-const makeLinkedInBadge = (linkedin, theme) => {
-  const badge = linkedin.badge;
-  const wrapper = document.createElement("div");
-  wrapper.className = "linkedin-badge-theme";
-  wrapper.dataset.badgeTheme = theme;
-
-  const profile = document.createElement("div");
-  profile.className = "badge-base LI-profile-badge";
-  profile.dataset.locale = badge.locale;
-  profile.dataset.size = badge.size;
-  profile.dataset.theme = theme;
-  profile.dataset.type = badge.type;
-  profile.dataset.vanity = badge.vanity;
-  profile.dataset.version = badge.version;
-
-  const link = document.createElement("a");
-  link.className = "badge-base__link LI-simple-link";
-  link.href = linkedin.url;
-  link.setAttribute("hidden", "true");
-  link.textContent = badge.profileName || linkedin.label;
-  profile.append(link);
-  wrapper.append(profile);
-
-  return wrapper;
+const makeLinkedInBadgeFrame = () => {
+  const frame = document.createElement("iframe");
+  frame.className = "linkedin-local-badge-frame";
+  frame.title = "LinkedIn profile badge";
+  frame.loading = "lazy";
+  frame.allowTransparency = "true";
+  frame.dataset.linkedinLocalBadgeFrame = "true";
+  frame.src = LINKEDIN_BADGE_PAGES[document.documentElement.dataset.theme] || LINKEDIN_BADGE_PAGES.light;
+  return frame;
 };
 
 const renderLinkedIn = (linkedin) => {
@@ -121,14 +105,9 @@ const renderLinkedIn = (linkedin) => {
     return;
   }
 
-  regions["hero-linkedin"].append(
-    makeLinkedInBadge(linkedin, THEMES.light),
-    makeLinkedInBadge(linkedin, THEMES.dark)
-  );
+  regions["hero-linkedin"]?.append(makeLinkedInBadgeFrame());
 
   if (linkedin.url) regions["linkedin-action"].append(makeLink(linkedin));
-
-  loadLinkedInBadgeScript();
 };
 
 const renderContent = (content) => {
